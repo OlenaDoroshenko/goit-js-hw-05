@@ -23,7 +23,7 @@ class Car {
   }
 
   turnOn() {
-    return this.isOn=true;
+    this.isOn=true;
   }
 
   turnOff() {
@@ -33,13 +33,16 @@ class Car {
 
   accelerate(value) {
     if ((value+this.speed)>this.maxSpeed) {
-      return `Сбавь скорость!`
+      this.speed = this.maxSpees
     };
-    return this.speed +=value;
+    this.speed +=value;
   }
 
   decelerate(value) {
-    if ((this.speed-value)<0) return;
+    if ((this.speed-value)<0) {
+      this.speed = 0;
+      return;
+    };
     this.speed-=value;
   }
 
